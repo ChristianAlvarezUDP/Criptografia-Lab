@@ -1,0 +1,9 @@
+FROM ubuntu:20.10
+
+# Cambia los repositorios a los que aun funcionan
+RUN sed -i 's/archive/old-releases/g' /etc/apt/sources.list # archive -> old-releases
+RUN sed -i 's/security/old-security/g' /etc/apt/sources.list # security -> old-security
+
+RUN apt-get update
+RUN apt-get install -y openssh-client
+
